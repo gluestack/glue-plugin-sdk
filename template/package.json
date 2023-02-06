@@ -1,0 +1,14 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "glue-plugin-sdk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hasnentai",
+  "license": "MIT",
+  "dependencies": {
+    "@gluestack/sdk-creator": "^0.1.1"
+  }
+}
