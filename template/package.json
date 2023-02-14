@@ -1,14 +1,18 @@
 {
-  "name": "template",
+  "name": "INSTANCENAME",
   "version": "1.0.0",
-  "description": "glue-plugin-sdk",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "Gluestack Plugins SDK Manager",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gluestack/glue-plugin-sdk"
   },
-  "author": "hasnentai",
-  "license": "MIT",
+  "keywords": [
+    "npm",
+    "glue-plugin-sdk"
+  ],
+  "license": "ISC",
+  "main": "dist/src/index.js",
   "dependencies": {
-    "@gluestack/sdk-creator": "^0.1.1"
+    "@gluestack/glue-plugin-sdk": "^0.x.x"
   }
 }

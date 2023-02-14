@@ -1,6 +1,9 @@
-import { createSDK } from "@gluestack/sdk-creator";
-import HelloWorldPlugin from "./plugins/HelloWorldPlugin";
+import { Auth } from './plugins/auth';
+import { SDK } from "@gluestack/glue-plugin-sdk";
 
+const sdk = SDK.create({
+  auth: new Auth()
+});
 
-const glueSDK = createSDK({"helloPlugin":new HelloWorldPlugin()})
-export {glueSDK};
+// Example:
+// sdk.auth.login();

@@ -1,14 +1,14 @@
 {
   "name": "glue-plugin-sdk",
-  "version": "0.0.1",
-  "description": "Create an Application using GlueStack framework",
+  "version": "0.0.14",
+  "description": "Gluestack Plugin SDK Manager",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gluestack/create-gluestack-app"
+    "url": "https://github.com/gluestack/glue-plugin-sdk"
   },
   "keywords": [
-    "npm",
-    "create-gluestack-app"
+    "gluestack",
+    "glue-plugin-sdk"
   ],
   "engines": {
     "node": ">=18 <19"
@@ -17,18 +17,17 @@
   "dependencies": {
     "@gluestack/glue-plugin-engine": "^0.0.x",
     "@types/node": "^18.11.19",
-    "@gluestack/framework": "^0.0.28"
-  },
-  "peerDependencies": {
-    "@gluestack/framework": "^0.0.28"
+    "@gluestack/framework": "^0.0.x"
   },
   "main": "dist/src/index.js",
   "scripts": {
     "plugin-dev": "tsc --watch",
-    "plugin-build": "tsc",
-    "prepare":"tsc"
+    "plugin-build": "tsc"
   },
   "devDependencies": {
     "typescript": "^4.9.5"
+  },
+  "peerDependencies": {
+    "@gluestack/framework": "^0.0.x"
   }
 }
