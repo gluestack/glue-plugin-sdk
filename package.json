@@ -1,5 +1,5 @@
 {
-  "name": "glue-plugin-sdk",
+  "name": "@gluestack/glue-plugin-sdk",
   "version": "0.0.14",
   "description": "Gluestack Plugin SDK Manager",
   "repository": {
