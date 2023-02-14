@@ -1,17 +1,3 @@
 #!/usr/bin/env node
 
-/*
-Uncomment this to load local glue package
-const {
-  GlueStackPlugin: LocalGluePackage,
-} = require("path/to/local/glue-<package-name>");
-
-require("@gluestack/framework")([LocalGluePackage]);
-*/
-
-const {
-  GlueStackPlugin,
-} = require("./");
-
-require("@gluestack/framework")([GlueStackPlugin]);
-
+require("@gluestack/framework")();
