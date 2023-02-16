@@ -1,15 +1,15 @@
 // @ts-ignore
 import packageJSON from "../package.json";
 import { PluginInstance } from "./PluginInstance";
+import { reWriteFile } from './helpers/rewrite-file';
+
+import { Workspaces } from '@gluestack/helpers';
 import IApp from "@gluestack/framework/types/app/interface/IApp";
 import IPlugin from "@gluestack/framework/types/plugin/interface/IPlugin";
 import IInstance from "@gluestack/framework/types/plugin/interface/IInstance";
 import ILifeCycle from "@gluestack/framework/types/plugin/interface/ILifeCycle";
 import IManagesInstances from "@gluestack/framework/types/plugin/interface/IManagesInstances";
 import IGlueStorePlugin from "@gluestack/framework/types/store/interface/IGluePluginStore";
-
-import { reWriteFile } from './helpers/rewrite-file';
-const { UpdateWorkspaces } = require('@gluestack/helpers');
 
 export { SDK, ISDKPlugin } from "./core/SDK";
 
@@ -69,7 +69,7 @@ export class GlueStackPlugin implements IPlugin, IManagesInstances, ILifeCycle {
 
       // update root package.json's workspaces with the new instance name
       const rootPackage = `${process.cwd()}/package.json`;
-      await UpdateWorkspaces.append(rootPackage, instance.getInstallationPath());
+      await Workspaces.append(rootPackage, instance.getInstallationPath());
     }
   }
 
