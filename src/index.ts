@@ -11,6 +11,8 @@ import IGlueStorePlugin from "@gluestack/framework/types/store/interface/IGluePl
 import { reWriteFile } from './helpers/rewrite-file';
 import { updateWorkspaces } from './helpers/update-workspaces';
 
+export { SDK, ISDKPlugin } from "./core/SDK";
+
 // Do not edit the name of this class
 export class GlueStackPlugin implements IPlugin, IManagesInstances, ILifeCycle {
   app: IApp;
