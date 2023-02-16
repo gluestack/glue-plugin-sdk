@@ -4,7 +4,7 @@ exports.PluginInstance = void 0;
 var PluginInstanceContainerController_1 = require("./PluginInstanceContainerController");
 var PluginInstance = (function () {
     function PluginInstance(app, callerPlugin, name, gluePluginStore, installationPath) {
-        this.isOfTypeInstance = true;
+        this.isOfTypeInstance = false;
         this.app = app;
         this.name = name;
         this.callerPlugin = callerPlugin;
@@ -12,9 +12,6 @@ var PluginInstance = (function () {
         this.installationPath = installationPath;
         this.containerController = new PluginInstanceContainerController_1.PluginInstanceContainerController(app, this);
     }
-    PluginInstance.prototype.getInstallationPath = function () {
-        return this.installationPath;
-    };
     PluginInstance.prototype.init = function () {
     };
     PluginInstance.prototype.destroy = function () {
@@ -24,6 +21,9 @@ var PluginInstance = (function () {
     };
     PluginInstance.prototype.getCallerPlugin = function () {
         return this.callerPlugin;
+    };
+    PluginInstance.prototype.getInstallationPath = function () {
+        return this.installationPath;
     };
     PluginInstance.prototype.getContainerController = function () {
         return this.containerController;

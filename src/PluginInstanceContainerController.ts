@@ -1,16 +1,16 @@
-import { PluginInstance } from "./PluginInstance";
 import IApp from "@gluestack/framework/types/app/interface/IApp";
+import IInstance from "@gluestack/framework/types/plugin/interface/IInstance";
 import IContainerController from "@gluestack/framework/types/plugin/interface/IContainerController";
 
-export class PluginInstanceContainerController implements IContainerController {
+export class PluginInstanceContainerController implements IContainerController
+{
   app: IApp;
   status: "up" | "down" = "down";
   portNumber: number;
   containerId: string;
-  callerInstance: PluginInstance;
-  appPorts: number[] = [];
+  callerInstance: IInstance;
 
-  constructor(app: IApp, callerInstance: PluginInstance) {
+  constructor(app: IApp, callerInstance: IInstance) {
     this.app = app;
     this.callerInstance = callerInstance;
     this.setStatus(this.callerInstance.gluePluginStore.get("status"));
@@ -20,23 +20,15 @@ export class PluginInstanceContainerController implements IContainerController {
     );
   }
 
-  getCallerInstance(): PluginInstance {
+  getCallerInstance(): IInstance {
     return this.callerInstance;
   }
 
-  installScript() {
-    // do nothing
-  }
-
-  runScript() {
-    // do nothing
-  }
-
   getEnv() {
-    return {}
+    return "";
   }
 
-  async getDockerJson() {
+  getDockerJson() {
     return {};
   }
 
@@ -44,9 +36,8 @@ export class PluginInstanceContainerController implements IContainerController {
     return this.status;
   }
 
-  // @ts-ignore
-  async getPortNumber(returnDefault?: boolean) {
-    return 10022;
+  getPortNumber(): number {
+    return this.portNumber;
   }
 
   getContainerId(): string {
@@ -55,31 +46,33 @@ export class PluginInstanceContainerController implements IContainerController {
 
   setStatus(status: "up" | "down") {
     this.callerInstance.gluePluginStore.set("status", status || "down");
-    this.status = status || "down";
-
-    return this.status;
+    return (this.status = status || "down");
   }
 
   setPortNumber(portNumber: number) {
     this.callerInstance.gluePluginStore.set("port_number", portNumber || null);
-    this.portNumber = portNumber || null
-
-    return this.portNumber;
+    return (this.portNumber = portNumber || null);
   }
 
   setContainerId(containerId: string) {
-    // do nothing
+    this.callerInstance.gluePluginStore.set(
+      "container_id",
+      containerId || null,
+    );
+    return (this.containerId = containerId || null);
   }
 
-  getConfig(): any { }
+  getConfig(): any {}
 
-  async up() {}
-
-  async down() {}
-
-  async watch(): Promise<string[]> {
-    return [];
+  async up() {
+    //
   }
 
-  async build() {}
+  async down() {
+    //
+  }
+
+  async build() {
+    //
+  }
 }

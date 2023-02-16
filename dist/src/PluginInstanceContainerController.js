@@ -40,7 +40,6 @@ exports.PluginInstanceContainerController = void 0;
 var PluginInstanceContainerController = (function () {
     function PluginInstanceContainerController(app, callerInstance) {
         this.status = "down";
-        this.appPorts = [];
         this.app = app;
         this.callerInstance = callerInstance;
         this.setStatus(this.callerInstance.gluePluginStore.get("status"));
@@ -50,67 +49,54 @@ var PluginInstanceContainerController = (function () {
     PluginInstanceContainerController.prototype.getCallerInstance = function () {
         return this.callerInstance;
     };
-    PluginInstanceContainerController.prototype.installScript = function () {
-    };
-    PluginInstanceContainerController.prototype.runScript = function () {
-    };
     PluginInstanceContainerController.prototype.getEnv = function () {
-        return {};
+        return "";
     };
     PluginInstanceContainerController.prototype.getDockerJson = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                return [2, {}];
-            });
-        });
+        return {};
     };
     PluginInstanceContainerController.prototype.getStatus = function () {
         return this.status;
     };
-    PluginInstanceContainerController.prototype.getPortNumber = function (returnDefault) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                return [2, 10022];
-            });
-        });
+    PluginInstanceContainerController.prototype.getPortNumber = function () {
+        return this.portNumber;
     };
     PluginInstanceContainerController.prototype.getContainerId = function () {
         return this.containerId;
     };
     PluginInstanceContainerController.prototype.setStatus = function (status) {
         this.callerInstance.gluePluginStore.set("status", status || "down");
-        this.status = status || "down";
-        return this.status;
+        return (this.status = status || "down");
     };
     PluginInstanceContainerController.prototype.setPortNumber = function (portNumber) {
         this.callerInstance.gluePluginStore.set("port_number", portNumber || null);
-        this.portNumber = portNumber || null;
-        return this.portNumber;
+        return (this.portNumber = portNumber || null);
     };
     PluginInstanceContainerController.prototype.setContainerId = function (containerId) {
+        this.callerInstance.gluePluginStore.set("container_id", containerId || null);
+        return (this.containerId = containerId || null);
     };
     PluginInstanceContainerController.prototype.getConfig = function () { };
     PluginInstanceContainerController.prototype.up = function () {
-        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2];
-        }); });
-    };
-    PluginInstanceContainerController.prototype.down = function () {
-        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2];
-        }); });
-    };
-    PluginInstanceContainerController.prototype.watch = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2, []];
+                return [2];
+            });
+        });
+    };
+    PluginInstanceContainerController.prototype.down = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2];
             });
         });
     };
     PluginInstanceContainerController.prototype.build = function () {
-        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2];
-        }); });
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2];
+            });
+        });
     };
     return PluginInstanceContainerController;
 }());

@@ -1,6 +1,6 @@
 {
     "name": "@gluestack/glue-plugin-sdk",
-    "version": "0.0.21",
+    "version": "0.0.22",
     "description": "Gluestack Plugin SDK Manager",
     "repository": {
         "type": "git",
@@ -16,7 +16,6 @@
     "license": "ISC",
     "dependencies": {
         "@gluestack/framework": "^0.0.x",
-        "@gluestack/glue-plugin-engine": "^0.0.x",
         "@gluestack/helpers": "^0.0.12",
         "@types/node": "^18.11.19",
         "typescript": "^4.9.5"

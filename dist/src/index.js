@@ -53,8 +53,8 @@ exports.__esModule = true;
 exports.GlueStackPlugin = exports.SDK = void 0;
 var package_json_1 = __importDefault(require("../package.json"));
 var PluginInstance_1 = require("./PluginInstance");
-var rewrite_file_1 = require("./helpers/rewrite-file");
 var helpers_1 = require("@gluestack/helpers");
+var rewrite_file_1 = require("./helpers/rewrite-file");
 var SDK_1 = require("./core/SDK");
 __createBinding(exports, SDK_1, "SDK");
 var GlueStackPlugin = (function () {
