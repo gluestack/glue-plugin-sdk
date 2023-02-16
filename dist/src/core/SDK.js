@@ -4,7 +4,6 @@ exports.SDK = void 0;
 var SDK = (function () {
     function SDK(augment) {
         if (augment === void 0) { augment = {}; }
-        this.token = "";
         this.registeredPlugins = {};
         Object.assign(this, augment);
         for (var key in augment) {
@@ -12,11 +11,13 @@ var SDK = (function () {
             augment[key].register(this);
         }
     }
-    SDK.prototype.setToken = function (token) {
-        this.token = token;
-    };
-    SDK.prototype.getToken = function () {
-        return this.token;
+    SDK.prototype.getPluginInstance = function (plugin) {
+        var pluginName = plugin.name;
+        if (!this.registeredPlugins[pluginName]) {
+            this.registeredPlugins[pluginName] = new plugin();
+            this.registeredPlugins[pluginName].register(this);
+        }
+        return this.registeredPlugins[pluginName];
     };
     SDK.create = function (augment) {
         return new this(augment);
