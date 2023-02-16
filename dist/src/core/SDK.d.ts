@@ -1,6 +1,7 @@
 export interface ISDKPlugin {
     sdk: SDK | undefined;
     register(sdk: SDK): void;
+    boot?: (sdk: SDK) => void;
 }
 export declare class SDK {
     registeredPlugins: {

@@ -10,9 +10,9 @@ var SDK = (function () {
             this.registeredPlugins[key] = augment[key];
             augment[key].register(this);
         }
-        for (var key in augment) {
-            if (typeof augment[key].boot === "function") {
-                augment[key].boot(this);
+        for (var key in this.registeredPlugins) {
+            if (typeof this.registeredPlugins[key].boot === "function") {
+                this.registeredPlugins[key].boot(this);
             }
         }
     }

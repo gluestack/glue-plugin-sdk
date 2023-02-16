@@ -2,6 +2,7 @@
 export interface ISDKPlugin {
   sdk: SDK | undefined;
   register(sdk: SDK): void;
+  boot?: (sdk: SDK) =>  void;
 }
 
 // This is SDKPlugin Creator
@@ -20,9 +21,9 @@ export class SDK {
     }
 
     // run boots from all the registered plugings
-    for (const key in augment) {
-      if (typeof augment[key].boot === "function") {
-        augment[key].boot(this);
+    for (const key in this.registeredPlugins) {
+      if (typeof this.registeredPlugins[key].boot === "function") {
+        this.registeredPlugins[key].boot(this);
       }
     }
   }
@@ -36,7 +37,7 @@ export class SDK {
           pluginName = key;
         }
       });
-    } catch (error: any) {
+    } catch (error) {
       return undefined;
     }
 
