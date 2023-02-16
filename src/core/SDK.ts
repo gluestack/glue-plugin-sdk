@@ -16,8 +16,7 @@ export class SDK {
     }
   }
 
-  getPluginInstance<T extends ISDKPlugin>(plugin: new () => T): T {
-    const pluginName = plugin.name;
+  getPluginInstance<T extends ISDKPlugin>(pluginName: string, plugin: new () => T): T {
     if (!this.registeredPlugins[pluginName]) {
       this.registeredPlugins[pluginName] = new plugin();
       this.registeredPlugins[pluginName].register(this);

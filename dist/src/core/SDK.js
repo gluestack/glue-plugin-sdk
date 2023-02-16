@@ -11,8 +11,7 @@ var SDK = (function () {
             augment[key].register(this);
         }
     }
-    SDK.prototype.getPluginInstance = function (plugin) {
-        var pluginName = plugin.name;
+    SDK.prototype.getPluginInstance = function (pluginName, plugin) {
         if (!this.registeredPlugins[pluginName]) {
             this.registeredPlugins[pluginName] = new plugin();
             this.registeredPlugins[pluginName].register(this);
