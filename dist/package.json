@@ -1,6 +1,6 @@
 {
     "name": "@gluestack/glue-plugin-sdk",
-    "version": "0.0.18",
+    "version": "0.0.19",
     "description": "Gluestack Plugin SDK Manager",
     "repository": {
         "type": "git",
@@ -19,7 +19,8 @@
         "@types/node": "^18.11.19",
         "@gluestack/framework": "^0.0.x"
     },
-    "main": "dist/src/index.js",
+    "main": "dist/src/index",
+    "typings": "dist/src/index",
     "scripts": {
         "plugin-dev": "tsc --watch",
         "plugin-build": "tsc"

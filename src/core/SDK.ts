@@ -5,15 +5,16 @@ export interface ISDKPlugin {
 
 export class SDK {
   token: string = "";
+
   registeredPlugins: {
     [key: string]: ISDKPlugin;
   } = {};
 
-  setToken(token: string) {
+  setToken(token: string): void {
     this.token = token;
   }
 
-  getToken() {
+  getToken(): string {
     return this.token;
   }
 
