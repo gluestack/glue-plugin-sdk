@@ -54,7 +54,7 @@ exports.GlueStackPlugin = exports.SDK = void 0;
 var package_json_1 = __importDefault(require("../package.json"));
 var PluginInstance_1 = require("./PluginInstance");
 var rewrite_file_1 = require("./helpers/rewrite-file");
-var update_workspaces_1 = require("./helpers/update-workspaces");
+var UpdateWorkspaces = require('@gluestack/helpers').UpdateWorkspaces;
 var SDK_1 = require("./core/SDK");
 __createBinding(exports, SDK_1, "SDK");
 var GlueStackPlugin = (function () {
@@ -97,7 +97,7 @@ var GlueStackPlugin = (function () {
                     case 2:
                         _a.sent();
                         rootPackage = "".concat(process.cwd(), "/package.json");
-                        return [4, (0, update_workspaces_1.updateWorkspaces)(rootPackage, instance.getInstallationPath())];
+                        return [4, UpdateWorkspaces.append(rootPackage, instance.getInstallationPath())];
                     case 3:
                         _a.sent();
                         _a.label = 4;

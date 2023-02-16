@@ -1,8 +1,4 @@
-import fs from 'fs';
-import util from 'util';
-
-const readFile = util.promisify(fs.readFile);
-const writeFile = util.promisify(fs.writeFile);
+import { readFile, writeFile } from '@gluestack/helpers';
 
 // Replaces file's content with the given database name
 export const reWriteFile = async (filePath: string, db_Name: string, defaultVar = 'my_first_db') => {

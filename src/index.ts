@@ -9,7 +9,7 @@ import IManagesInstances from "@gluestack/framework/types/plugin/interface/IMana
 import IGlueStorePlugin from "@gluestack/framework/types/store/interface/IGluePluginStore";
 
 import { reWriteFile } from './helpers/rewrite-file';
-import { updateWorkspaces } from './helpers/update-workspaces';
+const { UpdateWorkspaces } = require('@gluestack/helpers');
 
 export { SDK, ISDKPlugin } from "./core/SDK";
 
@@ -69,7 +69,7 @@ export class GlueStackPlugin implements IPlugin, IManagesInstances, ILifeCycle {
 
       // update root package.json's workspaces with the new instance name
       const rootPackage = `${process.cwd()}/package.json`;
-      await updateWorkspaces(rootPackage, instance.getInstallationPath());
+      await UpdateWorkspaces.append(rootPackage, instance.getInstallationPath());
     }
   }
 

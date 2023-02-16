@@ -35,15 +35,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 exports.__esModule = true;
 exports.reWriteFile = void 0;
-var fs_1 = __importDefault(require("fs"));
-var util_1 = __importDefault(require("util"));
-var readFile = util_1["default"].promisify(fs_1["default"].readFile);
-var writeFile = util_1["default"].promisify(fs_1["default"].writeFile);
+var helpers_1 = require("@gluestack/helpers");
 var reWriteFile = function (filePath, db_Name, defaultVar) {
     if (defaultVar === void 0) { defaultVar = 'my_first_db'; }
     return __awaiter(void 0, void 0, void 0, function () {
@@ -54,11 +48,11 @@ var reWriteFile = function (filePath, db_Name, defaultVar) {
                         switch (_a.label) {
                             case 0:
                                 _a.trys.push([0, 3, , 4]);
-                                return [4, readFile(filePath, "utf8")];
+                                return [4, (0, helpers_1.readFile)(filePath, "utf8")];
                             case 1:
                                 data = _a.sent();
                                 data = data.replaceAll(defaultVar, db_Name);
-                                return [4, writeFile(filePath, data)];
+                                return [4, (0, helpers_1.writeFile)(filePath, data)];
                             case 2:
                                 _a.sent();
                                 resolve('done');
