@@ -7,7 +7,6 @@ export declare class SDK {
         [key: string]: ISDKPlugin;
     };
     constructor(augment?: any);
-    getPluginInstance<T extends ISDKPlugin>(pluginName: string, plugin: new () => T): T;
+    getPluginInstance<T extends ISDKPlugin>(plugin: new () => T): T | undefined;
     static create<T extends typeof SDK, U>(this: T, augment?: U): InstanceType<T> & U;
 }
-export default SDK;

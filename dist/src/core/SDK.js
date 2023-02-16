@@ -10,11 +10,27 @@ var SDK = (function () {
             this.registeredPlugins[key] = augment[key];
             augment[key].register(this);
         }
+        for (var key in augment) {
+            if (typeof augment[key].boot === "function") {
+                augment[key].boot(this);
+            }
+        }
     }
-    SDK.prototype.getPluginInstance = function (pluginName, plugin) {
-        if (!this.registeredPlugins[pluginName]) {
-            this.registeredPlugins[pluginName] = new plugin();
-            this.registeredPlugins[pluginName].register(this);
+    SDK.prototype.getPluginInstance = function (plugin) {
+        var _this = this;
+        var pluginName = "";
+        try {
+            Object.keys(this.registeredPlugins).forEach(function (key) {
+                if (_this.registeredPlugins[key] instanceof plugin) {
+                    pluginName = key;
+                }
+            });
+        }
+        catch (error) {
+            return undefined;
+        }
+        if (pluginName === "") {
+            return undefined;
         }
         return this.registeredPlugins[pluginName];
     };
@@ -24,5 +40,4 @@ var SDK = (function () {
     return SDK;
 }());
 exports.SDK = SDK;
-exports["default"] = SDK;
 //# sourceMappingURL=SDK.js.map
