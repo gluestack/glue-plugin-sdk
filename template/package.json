@@ -14,5 +14,9 @@
   "main": "dist/src/index.js",
   "dependencies": {
     "@gluestack/glue-plugin-sdk": "^0.x.x"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
   }
 }
