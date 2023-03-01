@@ -17,11 +17,11 @@ var SDK = (function () {
         }
     }
     SDK.prototype.getPluginInstance = function (plugin) {
-        var _this = this;
         var pluginName = "";
+        var registeredPlugins = this.registeredPlugins;
         try {
-            Object.keys(this.registeredPlugins).forEach(function (key) {
-                if (_this.registeredPlugins[key] instanceof plugin) {
+            Object.keys(registeredPlugins).forEach(function (key) {
+                if (registeredPlugins[key] instanceof plugin) {
                     pluginName = key;
                 }
             });
@@ -32,7 +32,7 @@ var SDK = (function () {
         if (pluginName === "") {
             return undefined;
         }
-        return this.registeredPlugins[pluginName];
+        return registeredPlugins[pluginName];
     };
     SDK.create = function (augment) {
         return new this(augment);

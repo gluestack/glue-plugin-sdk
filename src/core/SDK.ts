@@ -30,13 +30,15 @@ export class SDK {
 
   getPluginInstance<T extends ISDKPlugin>(plugin: new () => T): T | undefined {
     let pluginName: string = "";
+    const { registeredPlugins } = this;
 
     try {
-      Object.keys(this.registeredPlugins).forEach((key) => {
-        if (this.registeredPlugins[key] instanceof plugin) {
+      Object.keys(registeredPlugins).forEach((key) => {
+        if (registeredPlugins[key] instanceof plugin) {
           pluginName = key;
         }
       });
+
     } catch (error) {
       return undefined;
     }
@@ -45,7 +47,7 @@ export class SDK {
       return undefined;
     }
 
-    return (this.registeredPlugins[pluginName] as unknown) as T;
+    return registeredPlugins[pluginName] as T;
   }
 
   static create<T extends typeof SDK, U>(this: T, augment?: U) {
